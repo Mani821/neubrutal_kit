@@ -1,0 +1,33 @@
+name: neubrutal_kit_example
+description: Example app showcasing the neubrutal_kit Flutter package with neubrutalism-styled UI components.
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.7.0 <4.0.0"
+  flutter: ">=3.10.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  neubrutal_kit:
+    path: ../
+  flutter_animate: ^4.5.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/icons/
+
+  fonts:
+    - family: Averia
+      fonts:
+        - asset: assets/fonts/AveriaLibre-Regular.ttf
