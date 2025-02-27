@@ -20,7 +20,7 @@ class NeuListTile extends StatefulWidget {
     this.backgroundColor = Colors.white,
     this.selectedBackgroundColor,
     this.borderColor = Colors.black,
-    this.primaryBorderWidth = 3.0,
+    this.primaryBorderWidth = 3.4,
     this.secondaryBorderWidth = 1.5,
     this.borderRadius = 8.0,
     this.contentPadding = const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),

@@ -47,7 +47,7 @@ class NeuIconButton extends StatefulWidget {
     required this.child,
     required this.onPressed,
     this.padding = 12.0,
-    this.shadowWidth = 8.0,
+    this.shadowWidth = 6.0,
     this.borderRadius = 8.0,
     this.backgroundColor = Colors.white,
     this.borderColor = Colors.black,

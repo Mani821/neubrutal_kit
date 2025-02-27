@@ -22,7 +22,7 @@ class NeuSwitch extends StatefulWidget {
     this.backgroundColor = Colors.transparent,
     this.activeBorderColor = Colors.black,
     this.inactiveBorderColor = Colors.black,
-    this.activeThumbColor = const Color(0xFF95A5E8),
+    this.activeThumbColor = Colors.blue,
     this.inactiveThumbColor = Colors.white,
     this.primaryBorderWidth = 6.0,
     this.secondaryBorderWidth = 1.6,
