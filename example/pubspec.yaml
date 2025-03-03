@@ -25,7 +25,7 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/icons/
+    - assets/icons/close.png
 
   fonts:
     - family: Averia

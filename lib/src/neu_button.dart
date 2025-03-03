@@ -61,7 +61,7 @@ class NeuButton extends StatefulWidget {
     this.borderColor = Colors.black,
     this.borderRadius = 8.0,
     this.topLeftBorderWidth = 1.8,
-    this.textStyle,
+    this.textStyle = const TextStyle(fontSize: 13,fontFamily: 'Averia'),
     this.animationDurationMs = 40,
     this.pressedOffset = 2.0,
     this.minWidth,

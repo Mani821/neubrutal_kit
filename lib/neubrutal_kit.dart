@@ -10,3 +10,5 @@ export 'src/neu_textfield.dart';
 export 'src/neu_segment_control.dart';
 export 'src/neu_slider.dart';
 export 'src/neu_loading.dart';
+export 'src/neu_container.dart';
+export 'src/neu_range_slider.dart';

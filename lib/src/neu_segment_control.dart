@@ -37,14 +37,24 @@ class NeuSegmentControl extends StatefulWidget {
   /// Border radius of the control.
   final double borderRadius;
 
-  /// Text style for the segment labels.
-  final TextStyle? textStyle;
+  /// Text style for the selected segment label.
+  final TextStyle? selectedTextStyle;
+
+  /// Text style for the unselected segment labels.
+  final TextStyle? unselectedTextStyle;
 
   /// Duration of the selection animation.
   final Duration animationDuration;
 
+
   /// Curve of the selection animation.
   final Curve animationCurve;
+
+  /// Duration for text animation
+  final Duration textAnimationDuration;
+
+  /// Curve of the selected text animation.
+  final Curve textAnimationCurve;
 
   /// Creates a custom segmented control.
   ///
@@ -60,9 +70,12 @@ class NeuSegmentControl extends StatefulWidget {
     this.borderColor = Colors.black,
     this.height = 50,
     this.borderRadius = 12,
-    this.textStyle,
+    this.selectedTextStyle,
+    this.unselectedTextStyle,
     this.animationDuration = const Duration(milliseconds: 400),
+    this.textAnimationDuration = const Duration(milliseconds: 100),
     this.animationCurve = Curves.easeInOutQuint,
+    this.textAnimationCurve = Curves.easeInOutQuint,
   }) : assert(segments.length >= 2, 'Must have at least 2 segments');
 
   @override
@@ -108,6 +121,31 @@ class _NeuSegmentControlState extends State<NeuSegmentControl> {
     // Remove the listener from the PageController if provided.
     widget.pageController?.removeListener(_pageListener);
     super.dispose();
+  }
+
+  /// Get the appropriate TextStyle based on whether the segment is selected
+  TextStyle _getTextStyleForSegment(int index) {
+    final defaultSelectedStyle = const TextStyle(
+      overflow: TextOverflow.ellipsis,
+      fontWeight: FontWeight.bold,
+      fontSize: 16,
+      fontFamily: 'Averia',
+      color: Colors.black,
+    );
+
+    final defaultUnselectedStyle = const TextStyle(
+      overflow: TextOverflow.ellipsis,
+      fontWeight: FontWeight.normal,
+      fontSize: 16,
+      fontFamily: 'Averia',
+      color: Colors.black54,
+    );
+
+    if (index == currentIndex) {
+      return widget.selectedTextStyle ?? defaultSelectedStyle;
+    } else {
+      return widget.unselectedTextStyle ?? defaultUnselectedStyle;
+    }
   }
 
   @override
@@ -179,17 +217,15 @@ class _NeuSegmentControlState extends State<NeuSegmentControl> {
                   child: Container(
                     color: Colors.transparent,
                     child: Center(
-                      child: Text(
-                        widget.segments[index],
-                        textAlign: TextAlign.center,
-                        style: widget.textStyle ??
-                            const TextStyle(
-                              overflow: TextOverflow.ellipsis,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16,
-                              fontFamily: 'Averia',
-                              color: Colors.black,
-                            ),
+                      child: AnimatedDefaultTextStyle(
+                        style: _getTextStyleForSegment(index),
+                        duration: widget.textAnimationDuration,
+                        curve: widget.textAnimationCurve,
+                        child: Text(
+                          widget.segments[index],
+                          textAlign: TextAlign.center,
+                         
+                        ),
                       ),
                     ),
                   ),

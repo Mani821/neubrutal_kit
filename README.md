@@ -1,39 +1,212 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# NeuBrutal Kit
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
+[![Pub](https://img.shields.io/pub/v/neubrutal_kit.svg)](https://pub.dev/packages/neubrutal_kit)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages).
--->
+A modern Flutter package providing neubrutalism-styled UI components for creating distinctive, playful interfaces with bold shadows and vivid colors. This package offers a collection of customizable widgets that follow the blocky, bold, and colorful style of the neubrutalism design trend.
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+![NeuBrutal Kit Header](screenshots/header.png)
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+NeuBrutal Kit contains the following components:
 
-## Getting started
+- **NeuButton**: Bold, chunky buttons with customizable colors and shadow effects
+- **NeuIconButton**: Icon buttons with the neubrutalism style
+- **NeuDivider**: Custom dividers with neubrutalism styling
+- **NeuContainer**: Container with neubrutalism styling for creating card-like elements
+- **NeuSwitch**: Toggle switches with bold, chunky styling
+- **NeuTile**: Tile components for lists
+- **NeuRadio**: Radio buttons with neubrutalism styling
+- **NeuCheckBox**: Checkboxes with bold borders and colors
+- **NeuTextfield**: Text input fields with the signature thick borders
+- **NeuSnackBar**: Bold, attention-grabbing snackbar notifications
+- **NeuSlider**: Sliders with chunky knobs and tracks
+- **NeuRangeSlider**: Range selectors with neubrutalism styling
+- **NeuSegmentControl**: Segmented controls for multiple option selection
+- **NeuLoading**: Loading indicators with the neubrutalism aesthetic
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+## Installation
+
+Add this to your package's pubspec.yaml file:
+
+```yaml
+dependencies:
+  neubrutal_kit: ^0.0.1
+```
+
+Then run:
+
+```bash
+flutter pub get
+```
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+Import the package:
 
 ```dart
-const like = 'sample';
+import 'package:neubrutal_kit/neubrutal_kit.dart';
 ```
 
-## Additional information
+### NeuButton
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+```dart
+NeuButton(
+  onPressed: () {
+    print('Button pressed!');
+  },
+  child: Text('Click Me'),
+  backgroundColor: Colors.yellow,
+  borderColor: Colors.black,
+  shadowColor: Colors.black,
+  borderWidth: 3,
+  shadowOffset: 4,
+)
+```
+
+![NeuButton Example](screenshots/neu_button.png)
+
+### NeuContainer
+
+```dart
+NeuContainer(
+  backgroundColor: Colors.pink.shade100,
+  borderColor: Colors.black,
+  borderWidth: 3,
+  shadowOffset: 6,
+  child: Padding(
+    padding: EdgeInsets.all(16),
+    child: Text('This is a NeuContainer'),
+  ),
+)
+```
+
+![NeuContainer Example](screenshots/neu_container.png)
+
+### NeuTextfield
+
+```dart
+NeuTextfield(
+  hintText: 'Enter text here',
+  backgroundColor: Colors.white,
+  borderColor: Colors.black,
+  shadowColor: Colors.black,
+  borderWidth: 3,
+  shadowOffset: 4,
+)
+```
+
+![NeuTextfield Example](screenshots/neu_textfield.png)
+
+### NeuSwitch
+
+```dart
+NeuSwitch(
+  value: _switchValue,
+  onChanged: (value) {
+    setState(() {
+      _switchValue = value;
+    });
+  },
+  activeColor: Colors.green,
+  inactiveColor: Colors.grey,
+  borderColor: Colors.black,
+  shadowColor: Colors.black,
+)
+```
+
+![NeuSwitch Example](screenshots/neu_switch.png)
+
+### NeuCheckBox
+
+```dart
+NeuCheckBox(
+  value: _isChecked,
+  onChanged: (value) {
+    setState(() {
+      _isChecked = value;
+    });
+  },
+  activeColor: Colors.blue,
+  borderColor: Colors.black,
+  shadowColor: Colors.black,
+)
+```
+
+![NeuCheckBox Example](screenshots/neu_checkbox.png)
+
+## Customization
+
+All widgets support extensive customization. Here are the common properties available across most components:
+
+- `backgroundColor`: The main color of the component
+- `borderColor`: The color of the border (typically black in neubrutalism)
+- `borderWidth`: Thickness of the border
+- `shadowColor`: Color of the offset shadow (typically black)
+- `shadowOffset`: Distance the shadow is offset (creates the 3D effect)
+- `borderRadius`: Roundness of corners (typically small in neubrutalism)
+
+## Animations
+
+This package leverages the [flutter_animate](https://pub.dev/packages/flutter_animate) package to add smooth animations to components. Many components include optional animation properties to enhance the user experience.
+
+## Example App
+
+Check out the [example](example) directory for a complete sample application showcasing all the components.
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:neubrutal_kit/neubrutal_kit.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'NeuBrutal Demo',
+      home: Scaffold(
+        appBar: AppBar(title: const Text('NeuBrutal Kit Example')),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              NeuButton(
+                onPressed: () {},
+                child: const Text('NeuButton'),
+                backgroundColor: Colors.yellow,
+              ),
+              const SizedBox(height: 16),
+              NeuContainer(
+                child: const Padding(
+                  padding: EdgeInsets.all(16.0),
+                  child: Text('NeuContainer'),
+                ),
+                backgroundColor: Colors.pink.shade100,
+              ),
+              // More examples...
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+```
+
+## Screenshots
+
+![Gallery View](screenshots/gallery.png)
+
+## Contributing
+
+Contributions are welcome! If you'd like to contribute, please feel free to open an issue or submit a pull request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

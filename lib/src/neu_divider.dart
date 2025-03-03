@@ -17,6 +17,7 @@ class NeuDivider extends StatelessWidget {
   /// - [animate]: Whether to apply animation to the divider.
   /// - [animationDuration]: The duration of the animation if [animate] is true.
   /// - [animationCurve]: The curve to use for the animation if [animate] is true.
+  /// - [animationAlignment]: The alignment for the animation if [animate] is true.
   /// - [key]: Widget key.
   const NeuDivider({
     super.key,
@@ -27,6 +28,7 @@ class NeuDivider extends StatelessWidget {
     this.animate = true,
     this.animationDuration = const Duration(seconds: 1),
     this.animationCurve = Curves.easeInOutQuint,
+    this.animationAlignment = Alignment.centerLeft,
   });
 
   /// The primary color of the divider and its borders.
@@ -49,6 +51,9 @@ class NeuDivider extends StatelessWidget {
 
   /// The curve to use for the animation if [animate] is true.
   final Curve animationCurve;
+
+  /// The alignment for the animation if [animate] is true.
+  final Alignment animationAlignment;
 
   @override
   Widget build(BuildContext context) {
@@ -83,7 +88,7 @@ class NeuDivider extends StatelessWidget {
     // Apply animation if enabled
     if (animate) {
       return divider.animate().scale(
-        alignment: Alignment.centerLeft,
+        alignment: animationAlignment,
         duration: animationDuration,
         curve: animationCurve,
       );

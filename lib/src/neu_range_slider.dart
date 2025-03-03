@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-/// A custom slider widget with a neubrutalism design style.
+/// A custom range slider widget with a neubrutalism design style.
 ///
-/// This widget displays a slider with a unique aesthetic featuring bold borders,
+/// This widget displays a range slider with a unique aesthetic featuring bold borders,
 /// custom shadows, and a distinct track and thumb design. It supports customization
 /// of colors, dimensions, and styling properties.
-class NeuSlider extends StatefulWidget {
-  /// The current value of the slider.
-  final double value;
+class NeuRangeSlider extends StatefulWidget {
+  /// The current range values of the slider.
+  final RangeValues values;
 
   /// The minimum value of the slider.
   final double min;
@@ -15,14 +15,14 @@ class NeuSlider extends StatefulWidget {
   /// The maximum value of the slider.
   final double max;
 
-  /// Called when the slider value changes.
-  final ValueChanged<double> onChanged;
+  /// Called when the slider values change.
+  final ValueChanged<RangeValues> onChanged;
 
   /// Called when slider interaction starts.
-  final ValueChanged<double>? onChangeStart;
+  final ValueChanged<RangeValues>? onChangeStart;
 
   /// Called when slider interaction ends.
-  final ValueChanged<double>? onChangeEnd;
+  final ValueChanged<RangeValues>? onChangeEnd;
 
   /// Color for the active portion of the track.
   final Color activeTrackColor;
@@ -30,16 +30,16 @@ class NeuSlider extends StatefulWidget {
   /// Color for the inactive portion of the track.
   final Color inactiveTrackColor;
 
-  /// Color for the slider thumb.
+  /// Color for the slider thumbs.
   final Color thumbColor;
 
-  /// Border color used for both the thumb and the track.
+  /// Border color used for both the thumbs and the track.
   final Color borderColor;
 
-  /// Width of the border for both the thumb and the track.
+  /// Width of the border for both the thumbs and the track.
   final double borderWidth;
 
-  /// Radius of the slider thumb.
+  /// Radius of the slider thumbs.
   final double thumbRadius;
 
   /// Height of the slider track.
@@ -54,10 +54,10 @@ class NeuSlider extends StatefulWidget {
   /// Color of the shadow.
   final Color shadowColor;
 
-  /// Creates a neubrutalism slider.
-  const NeuSlider({
+  /// Creates a neubrutalism range slider.
+  const NeuRangeSlider({
     super.key,
-    required this.value,
+    required this.values,
     required this.onChanged,
     this.min = 0.0,
     this.max = 1.0,
@@ -76,10 +76,10 @@ class NeuSlider extends StatefulWidget {
   });
 
   @override
-  NeuSliderState createState() => NeuSliderState();
+  NeuRangeSliderState createState() => NeuRangeSliderState();
 }
 
-class NeuSliderState extends State<NeuSlider> {
+class NeuRangeSliderState extends State<NeuRangeSlider> {
   @override
   Widget build(BuildContext context) {
     return SliderTheme(
@@ -88,8 +88,8 @@ class NeuSliderState extends State<NeuSlider> {
         activeTrackColor: widget.activeTrackColor,
         inactiveTrackColor: widget.inactiveTrackColor,
         trackHeight: widget.trackHeight,
-        // Use our custom track shape that respects borderWidth, borderRadius, etc.
-        trackShape: _NeuSliderTrackShape(
+        // Use our custom range track shape that respects borderWidth, borderRadius, etc.
+        rangeTrackShape: _NeuRangeSliderTrackShape(
           borderWidth: widget.borderWidth,
           borderColor: widget.borderColor,
           trackHeight: widget.trackHeight,
@@ -97,8 +97,8 @@ class NeuSliderState extends State<NeuSlider> {
           shadowOffset: widget.shadowOffset,
           shadowColor: widget.shadowColor,
         ),
-        // Use our custom thumb shape that respects thumbRadius, borderWidth, etc.
-        thumbShape: _NeuSliderThumbShape(
+        // Use our custom range thumb shape that respects thumbRadius, borderWidth, etc.
+        rangeThumbShape: _NeuRangeSliderThumbShape(
           thumbRadius: widget.thumbRadius,
           thumbColor: widget.thumbColor,
           borderColor: widget.borderColor,
@@ -109,8 +109,8 @@ class NeuSliderState extends State<NeuSlider> {
         // Disable overlay to keep the design clean.
         overlayShape: SliderComponentShape.noOverlay,
       ),
-      child: Slider(
-        value: widget.value,
+      child: RangeSlider(
+        values: widget.values,
         min: widget.min,
         max: widget.max,
         onChanged: widget.onChanged,
@@ -121,8 +121,8 @@ class NeuSliderState extends State<NeuSlider> {
   }
 }
 
-/// Custom slider thumb shape with neubrutalism design.
-class _NeuSliderThumbShape extends SliderComponentShape {
+/// Custom range slider thumb shape with neubrutalism design.
+class _NeuRangeSliderThumbShape extends RangeSliderThumbShape {
   final double thumbRadius;
   final Color thumbColor;
   final Color borderColor;
@@ -130,7 +130,7 @@ class _NeuSliderThumbShape extends SliderComponentShape {
   final Offset shadowOffset;
   final Color shadowColor;
 
-  const _NeuSliderThumbShape({
+  const _NeuRangeSliderThumbShape({
     required this.thumbRadius,
     required this.thumbColor,
     required this.borderColor,
@@ -149,14 +149,14 @@ class _NeuSliderThumbShape extends SliderComponentShape {
       Offset center, {
         required Animation<double> activationAnimation,
         required Animation<double> enableAnimation,
-        required bool isDiscrete,
-        required TextPainter labelPainter,
-        required RenderBox parentBox,
-        required Size sizeWithOverflow,
+        bool isDiscrete = false,
+        bool isEnabled = true,
+        bool isOnTop = false,
+        bool isPressed = false,
         required SliderThemeData sliderTheme,
-        required TextDirection textDirection,
-        required double textScaleFactor,
-        required double value,
+        TextDirection? textDirection,
+        Thumb? thumb,
+        bool? isStart,
       }) {
     final Canvas canvas = context.canvas;
 
@@ -180,8 +180,8 @@ class _NeuSliderThumbShape extends SliderComponentShape {
   }
 }
 
-/// Custom slider track shape with neubrutalism design.
-class _NeuSliderTrackShape extends SliderTrackShape {
+/// Custom range slider track shape with neubrutalism design.
+class _NeuRangeSliderTrackShape extends RangeSliderTrackShape {
   final double borderWidth;
   final Color borderColor;
   final double trackHeight;
@@ -189,7 +189,7 @@ class _NeuSliderTrackShape extends SliderTrackShape {
   final Offset shadowOffset;
   final Color shadowColor;
 
-  const _NeuSliderTrackShape({
+  const _NeuRangeSliderTrackShape({
     required this.borderWidth,
     required this.borderColor,
     required this.trackHeight,
@@ -221,11 +221,12 @@ class _NeuSliderTrackShape extends SliderTrackShape {
         required RenderBox parentBox,
         required SliderThemeData sliderTheme,
         required Animation<double> enableAnimation,
-        bool isDiscrete = false,
+        required Offset startThumbCenter,
+        required Offset endThumbCenter,
         bool isEnabled = true,
+        bool isDiscrete = false,
         required TextDirection textDirection,
-        required Offset thumbCenter,
-        Offset? secondaryOffset,
+        double additionalActiveTrackHeight = 0,
       }) {
     final Canvas canvas = context.canvas;
     final Rect trackRect = getPreferredRect(
@@ -246,43 +247,29 @@ class _NeuSliderTrackShape extends SliderTrackShape {
       ..style = PaintingStyle.fill;
     canvas.drawRRect(trackRRect, inactiveTrackPaint);
 
-    // Calculate the active track portion based on thumb position
-    // The active portion extends from the left edge to the thumb center
-    // (or from the right edge to the thumb center in RTL mode)
-    final double trackLeft = trackRect.left + borderWidth / 2;
-    final double trackRight = trackRect.right - borderWidth / 2;
-    final double trackTop = trackRect.top;
-    final double trackBottom = trackRect.bottom;
+    // Calculate the active track portion
+    final double startPos = startThumbCenter.dx;
+    final double endPos = endThumbCenter.dx;
 
-    // Determine the active track portion based on text direction
-    Rect activeTrackRect;
-    if (textDirection == TextDirection.ltr) {
-      activeTrackRect = Rect.fromLTRB(
-        trackLeft,
-        trackTop,
-        thumbCenter.dx,
-        trackBottom,
-      );
-    } else {
-      activeTrackRect = Rect.fromLTRB(
-        thumbCenter.dx,
-        trackTop,
-        trackRight,
-        trackBottom,
-      );
-    }
-
-    // Create a rounded rectangle for the active portion
-    final RRect activeTrackRRect = RRect.fromRectAndRadius(
-      activeTrackRect,
-      Radius.circular(borderRadius),
+    // Draw the active track portion
+    final Rect activeRect = Rect.fromLTRB(
+      startPos,
+      trackRect.top,
+      endPos,
+      trackRect.bottom,
     );
 
-    // Draw the active track using the activeTrackColor from the theme
-    final Paint activeTrackPaint = Paint()
-      ..color = sliderTheme.activeTrackColor ?? Colors.blue
-      ..style = PaintingStyle.fill;
-    canvas.drawRRect(activeTrackRRect, activeTrackPaint);
+    if (activeRect.width > 0) {
+      final RRect activeRRect = RRect.fromRectAndRadius(
+        activeRect,
+        Radius.circular(borderRadius),
+      );
+
+      final Paint activeTrackPaint = Paint()
+        ..color = sliderTheme.activeTrackColor ?? Colors.blue
+        ..style = PaintingStyle.fill;
+      canvas.drawRRect(activeRRect, activeTrackPaint);
+    }
 
     // Draw the track border using the custom borderWidth and borderColor.
     final Paint borderPaint = Paint()
@@ -290,9 +277,5 @@ class _NeuSliderTrackShape extends SliderTrackShape {
       ..strokeWidth = borderWidth
       ..style = PaintingStyle.stroke;
     canvas.drawRRect(trackRRect, borderPaint);
-
-    // Draw shadow for the neubrutalism effect
-    final Path shadowPath = Path()..addRRect(trackRRect);
-    canvas.drawShadow(shadowPath, shadowColor, shadowOffset.distance / 2, true);
   }
 }
