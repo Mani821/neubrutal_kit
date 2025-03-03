@@ -214,16 +214,20 @@ Follow these steps to contribute your changes:
 Thank you for helping make **NeuBrutal Kit** awesome!
 
 ## ☀️ Authors
-<table>
-  <tr>
-    <td align="center">
-      <img src="https://github.com/Mani821.png" width="100px;" alt="Imran Mani"/><br />
-      <sub><b>Imran Mani</b></sub><br />
-      <a href="https://github.com/Mani821"><img src="https://api.iconify.design/lineicons:github-original.svg?color=%23888888" height="25" /></a>
-      <a href="https://linkedin.com/in/imran-farooq-8192b1238"><img src="https://api.iconify.design/lineicons:linkedin-original.svg?color=%23888888" height="25" /></a>
-    </td>
-  </tr>
-</table>
+<div style="text-align: center;">
+  <img 
+    style="border-radius: 10px; margin-bottom: 6px;"
+    src="https://github.com/Mani821.png" width="80px;" alt="Imran Mani"/><br />
+  <sub><b>Imran Mani</b></sub><br />
+  <div style="margin-top: 6px; display: flex; gap: 10px; align-items: center; justify-content: center;">
+    <a href="https://github.com/Mani821">
+      <img src="https://api.iconify.design/lineicons:github-original.svg?color=%23888888" height="22" />
+    </a>
+    <a href="https://linkedin.com/in/imran-farooq-8192b1238">
+      <img src="https://api.iconify.design/lineicons:linkedin-original.svg?color=%23888888" height="22" />
+    </a>
+  </div>
+</div>
 
 ## ⭐️ License
 
