@@ -5,7 +5,6 @@
 
 A modern Flutter package providing neubrutalism-styled UI components for creating distinctive, playful interfaces with bold shadows and vivid colors. This package offers a collection of customizable widgets that follow the blocky, bold, and colorful style of the neubrutalism design trend.
 
-![NeuBrutal Kit Header](screenshots/header.png)
 
 ## 💫 Features
 
@@ -66,14 +65,10 @@ NeuButton(
 
 ```dart
 NeuContainer(
-  backgroundColor: Colors.pink.shade100,
-  borderColor: Colors.black,
-  borderWidth: 3,
-  shadowOffset: 6,
-  child: Padding(
-    padding: EdgeInsets.all(16),
-    child: Text('This is a NeuContainer'),
-  ),
+  height: 100,
+  width: 100,
+  shadowColor: Colors.black,
+  child: Text('Hey, there'),
 )
 ```
 
@@ -104,10 +99,6 @@ NeuSwitch(
       _switchValue = value;
     });
   },
-  activeColor: Colors.green,
-  inactiveColor: Colors.grey,
-  borderColor: Colors.black,
-  shadowColor: Colors.black,
 )
 ```
 
@@ -125,7 +116,6 @@ NeuCheckBox(
   },
   activeColor: Colors.blue,
   borderColor: Colors.black,
-  shadowColor: Colors.black,
 )
 ```
 
@@ -141,6 +131,8 @@ All widgets support extensive customization. Here are the common properties avai
 - `shadowColor`: Color of the offset shadow (typically black)
 - `shadowOffset`: Distance the shadow is offset (creates the 3D effect)
 - `borderRadius`: Roundness of corners (typically small in neubrutalism)
+
+For more info, please, refer to the [showcase.dart](example/lib/showcase.dart) in the example.
 
 ## 🎮 Animations
 
@@ -194,7 +186,7 @@ class MyApp extends StatelessWidget {
 }
 ```
 
-## 📸 Screenshots
+## 📸 Showcase
 
 ![Gallery View](screenshots/gallery.png)
 
@@ -225,10 +217,10 @@ Thank you for helping make **NeuBrutal Kit** awesome!
 <table>
   <tr>
     <td align="center">
-      <img src="https://github.com/Mani821.png" width="100px;" alt="Your Name"/><br />
-      <sub><b>Your Name</b></sub><br />
-      <a href="https://github.com/Mani821"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" height="25" /></a>
-      <a href="https://linkedin.com/in/imran-farooq-8192b1238"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" height="25" /></a>
+      <img src="https://github.com/Mani821.png" width="100px;" alt="Imran Mani"/><br />
+      <sub><b>Imran Mani</b></sub><br />
+      <a href="https://github.com/Mani821"><img src="https://api.iconify.design/lineicons:github-original.svg?color=%23888888" height="25" /></a>
+      <a href="https://linkedin.com/in/imran-farooq-8192b1238"><img src="https://api.iconify.design/lineicons:linkedin-original.svg?color=%23888888" height="25" /></a>
     </td>
   </tr>
 </table>

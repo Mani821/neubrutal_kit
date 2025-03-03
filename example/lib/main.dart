@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:neubrutal_kit_example/playground.dart';
 import 'package:neubrutal_kit_example/showcase.dart';
 
 void main() {
@@ -14,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'NeuBrutal App',
-      home: const Playground() // TODO change back to Showcase()
+      home: const Showcase()
     );
   }
 }
