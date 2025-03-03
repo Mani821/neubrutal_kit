@@ -1,4 +1,4 @@
-# NeuBrutal Kit
+# ✨ NeuBrutal Kit
 
 [![Pub](https://img.shields.io/pub/v/neubrutal_kit.svg)](https://pub.dev/packages/neubrutal_kit)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -7,7 +7,7 @@ A modern Flutter package providing neubrutalism-styled UI components for creatin
 
 ![NeuBrutal Kit Header](screenshots/header.png)
 
-## Features
+## 💫 Features
 
 NeuBrutal Kit contains the following components:
 
@@ -26,7 +26,7 @@ NeuBrutal Kit contains the following components:
 - **NeuSegmentControl**: Segmented controls for multiple option selection
 - **NeuLoading**: Loading indicators with the neubrutalism aesthetic
 
-## Installation
+## 🎖 Installation
 
 Add this to your package's pubspec.yaml file:
 
@@ -41,7 +41,7 @@ Then run:
 flutter pub get
 ```
 
-## Usage
+## ⚡️ Usage
 
 Import the package:
 
@@ -57,11 +57,6 @@ NeuButton(
     print('Button pressed!');
   },
   child: Text('Click Me'),
-  backgroundColor: Colors.yellow,
-  borderColor: Colors.black,
-  shadowColor: Colors.black,
-  borderWidth: 3,
-  shadowOffset: 4,
 )
 ```
 
@@ -136,7 +131,7 @@ NeuCheckBox(
 
 ![NeuCheckBox Example](screenshots/neu_checkbox.png)
 
-## Customization
+## 🛠️ Customization
 
 All widgets support extensive customization. Here are the common properties available across most components:
 
@@ -147,7 +142,7 @@ All widgets support extensive customization. Here are the common properties avai
 - `shadowOffset`: Distance the shadow is offset (creates the 3D effect)
 - `borderRadius`: Roundness of corners (typically small in neubrutalism)
 
-## Animations
+## 🎮 Animations
 
 This package leverages the [flutter_animate](https://pub.dev/packages/flutter_animate) package to add smooth animations to components. Many components include optional animation properties to enhance the user experience.
 
@@ -199,14 +194,45 @@ class MyApp extends StatelessWidget {
 }
 ```
 
-## Screenshots
+## 📸 Screenshots
 
 ![Gallery View](screenshots/gallery.png)
 
-## Contributing
+## 🏗️ Contributing
 
-Contributions are welcome! If you'd like to contribute, please feel free to open an issue or submit a pull request.
+Contributions are welcome and help make NeuBrutal Kit even better! Whether it's bug fixes, new features, or improvements to documentation, your input is highly appreciated.
 
-## License
+## 🚀 Reporting Issues & Feature Requests
+
+If you encounter any problems, please [open an issue](https://github.com/Mani821/neubrutal_kit/issues) on GitHub. If you think the library is missing a feature, raise a ticket and I'll look into it. Your feedback helps guide the project!
+
+## 🔧 Creating a Pull Request
+
+Follow these steps to contribute your changes:
+
+- **Fork the Project:** Click the **Fork** button on the repository page.
+- **Create a Feature Branch:**
+- ```bash
+  git checkout -b feature/AmazingFeature
+  git commit -m "Add some AmazingFeature"
+  git push origin feature/AmazingFeature
+  ```
+- **Open a Pull Request:** Choose the **Staging** branch from the dropdown when creating your PR.
+
+Thank you for helping make **NeuBrutal Kit** awesome!
+
+## ☀️ Authors
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/Mani821.png" width="100px;" alt="Your Name"/><br />
+      <sub><b>Your Name</b></sub><br />
+      <a href="https://github.com/Mani821"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" height="25" /></a>
+      <a href="https://linkedin.com/in/imran-farooq-8192b1238"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" height="25" /></a>
+    </td>
+  </tr>
+</table>
+
+## ⭐️ License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

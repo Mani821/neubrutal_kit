@@ -5,14 +5,14 @@ import 'package:neubrutal_kit_example/views/other_components_view.dart';
 import 'package:neubrutal_kit_example/views/sliders_view.dart';
 import 'package:neubrutal_kit_example/views/toggles_view.dart';
 
-class Homepage extends StatefulWidget {
-  const Homepage({super.key});
+class Showcase extends StatefulWidget {
+  const Showcase({super.key});
 
   @override
-  State<Homepage> createState() => _HomepageState();
+  State<Showcase> createState() => _ShowcaseState();
 }
 
-class _HomepageState extends State<Homepage> {
+class _ShowcaseState extends State<Showcase> {
   final pageController = PageController();
 
   @override

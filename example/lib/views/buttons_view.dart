@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:neubrutal_kit/neubrutal_kit.dart';
 
-import '../homepage.dart';
+import '../showcase.dart';
 
 class ButtonDemoView extends StatefulWidget {
   const ButtonDemoView({super.key});
